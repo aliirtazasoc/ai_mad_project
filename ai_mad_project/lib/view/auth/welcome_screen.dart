@@ -1,16 +1,14 @@
 import 'package:ai_mad_project/constants/custom_button.dart';
-import 'package:ai_mad_project/view/constants/color_constants.dart';
-import 'package:ai_mad_project/view/constants/constants_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
+import '../../constants/color_constants.dart';
+import '../../constants/customText.dart';
 import '../../utils/responsive.dart';
 
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});
 
-  Responsive responsive = Responsive();
+  final Responsive responsive = Responsive();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,9 @@ class WelcomeScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           color: blackColor,
           image: DecorationImage(
-              image: AssetImage("assets/jpg/welcome.jpg"), fit: BoxFit.cover),
+            image: AssetImage("assets/jpg/welcome.jpg"),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Padding(
           padding: EdgeInsets.only(
@@ -37,7 +37,7 @@ class WelcomeScreen extends StatelessWidget {
                 fontSize: 70,
                 fontWeight: FontWeight.w500,
               ),
-              SizedBox(height: 250),
+              const SizedBox(height: 250),
               CustomButton(
                 text: "Sign In",
                 fontSize: 17,
@@ -46,9 +46,7 @@ class WelcomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 onTap: () => Get.toNamed("loginScreen"),
               ),
-              SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               customText(text: "Create an account")
             ],
           ),

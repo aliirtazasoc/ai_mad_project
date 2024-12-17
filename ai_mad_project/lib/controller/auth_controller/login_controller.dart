@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 class LoginController extends GetxController {
   var isObscured = true.obs;
 
-  TextEditingController fullNameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController fullNameTextController = TextEditingController();
+  TextEditingController passwordTextController = TextEditingController();
 
   void toggleObscureText() {
     isObscured.value = !isObscured.value;

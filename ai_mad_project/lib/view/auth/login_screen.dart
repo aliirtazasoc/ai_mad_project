@@ -2,7 +2,7 @@ import 'package:ai_mad_project/constants/color_constants.dart';
 import 'package:ai_mad_project/constants/customText.dart';
 import 'package:ai_mad_project/constants/custom_button.dart';
 import 'package:ai_mad_project/constants/custom_text_field.dart';
-import 'package:ai_mad_project/controller/outh_controller/login_controller.dart';
+import 'package:ai_mad_project/controller/auth_controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../utils/responsive.dart';
@@ -35,28 +35,30 @@ class LoginScreen extends StatelessWidget {
                     bottomRight: Radius.circular(150),
                   ),
                 ),
-                child: Stack(children: [
-                  Positioned(
-                    left: 25,
-                    top: 55,
-                    child: InkWell(
-                      onTap: () => Get.back(),
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          color: whiteColor,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Icon(
-                          Icons.arrow_back_ios_rounded,
-                          size: 18,
-                          color: primaryColor,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: 25,
+                      top: 55,
+                      child: InkWell(
+                        onTap: () => Get.back(),
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            color: whiteColor,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Icon(
+                            Icons.arrow_back_ios_rounded,
+                            size: 18,
+                            color: primaryColor,
+                          ),
                         ),
                       ),
-                    ),
-                  )
-                ]),
+                    )
+                  ],
+                ),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
@@ -87,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                         Icons.person,
                         color: primaryColor,
                       ),
-                      controller: controller.fullNameController,
+                      controller: controller.fullNameTextController,
                     ),
                     const SizedBox(height: 18),
                     Obx(
@@ -111,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                                 Icons.remove_red_eye_outlined,
                                 color: primaryColor,
                               ),
-                        controller: controller.passwordController,
+                        controller: controller.passwordTextController,
                       ),
                     ),
                     const SizedBox(height: 10),

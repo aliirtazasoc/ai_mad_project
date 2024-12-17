@@ -1,4 +1,3 @@
-import 'package:ai_mad_project/controller/outh_controller/signup_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +5,7 @@ import '../../constants/color_constants.dart';
 import '../../constants/customText.dart';
 import '../../constants/custom_button.dart';
 import '../../constants/custom_text_field.dart';
+import '../../controller/auth_controller/signup_controller.dart';
 import '../../utils/responsive.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -29,6 +29,7 @@ class SignupScreen extends StatelessWidget {
             Positioned(
               top: 40,
               child: InkWell(
+                onTap: () => Get.back(),
                 child: Container(
                   height: 40,
                   width: 40,
@@ -42,8 +43,6 @@ class SignupScreen extends StatelessWidget {
                     color: primaryColor,
                   ),
                 ),
-                onTap: () => Get.offAll,
-
               ),
             ),
             SingleChildScrollView(
@@ -162,75 +161,75 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: responsive.setHeight(4)),
+                  SizedBox(height: responsive.setHeight(5)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        height: 55,
-                        width: 55,
-                        decoration: BoxDecoration(
+                          height: 55,
+                          width: 55,
+                          decoration: BoxDecoration(
                             color: whiteColor,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-
+                                color: greyColor.withOpacity(0.5),
                                 spreadRadius: 2,
-
                                 blurRadius: 5,
-
                                 offset: const Offset(0, 3), // Cha
                               )
                             ],
-                            borderRadius: BorderRadius.circular(30)),
-                        child: const Icon(
-                          Icons.monochrome_photos,
-                          color: Colors.blueAccent,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(
+                              "assets/png/apple_logo.png",
+                              fit: BoxFit.cover,
+                            ),
+                          )),
+                      Container(
+                        height: 55,
+                        width: 55,
+                        decoration: BoxDecoration(
+                          color: whiteColor,
+                          boxShadow: [
+                            BoxShadow(
+                              color: greyColor.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3), // Cha
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Image.asset(
+                          "assets/png/logo_google_icon.png",
+                          fit: BoxFit.cover,
                         ),
                       ),
                       Container(
                         height: 55,
                         width: 55,
                         decoration: BoxDecoration(
-                            color: whiteColor,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-
-                                spreadRadius: 2,
-
-                                blurRadius: 5,
-
-                                offset: const Offset(0, 3), // Cha
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(30)),
-                        child: const Icon(
-                          Icons.facebook,
-                          color: Colors.blueAccent,
+                          color: whiteColor,
+                          boxShadow: [
+                            BoxShadow(
+                              color: greyColor.withOpacity(0.5),
+                              spreadRadius: 2, // Spread radius
+                              blurRadius: 5,
+                              offset: const Offset(0, 3), // Cha
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                      ),
-                      Container(
-                        height: 55,
-                        width: 55,
-                        decoration: BoxDecoration(
-                            color: whiteColor,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2, // Spread radius
-                                blurRadius: 5,
-                                offset: const Offset(0, 3), // Cha
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(30)),
                         child: const Icon(
                           Icons.facebook,
-                          color: Colors.blueAccent,
+                          size: 40,
+                          color: Colors.blue,
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
