@@ -157,6 +157,7 @@ class LoginScreen extends StatelessWidget {
               fontSize: 17,
               height: responsive.setHeight(5),
               width: double.infinity,
+              onTap: () => Get.toNamed("/bottomNavBar"),
             ),
             const SizedBox(height: 10),
             Row(
