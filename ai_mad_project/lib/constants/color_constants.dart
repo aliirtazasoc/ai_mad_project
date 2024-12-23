@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const primaryColor = Color(0xFF8B3EF8);
+// const primaryColor = Color(0xFF8B3EF8);
+const primaryColor = Color(0xFF585CE5);
 const selectedColor = Color(0xFF4B297A);
 const headingColor = Colors.black;
 const containerBg = Color(0xFFF6F0FF);
