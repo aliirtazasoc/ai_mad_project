@@ -31,11 +31,11 @@ class SignupScreen extends StatelessWidget {
               child: InkWell(
                 onTap: () => Get.back(),
                 child: Container(
-                  height: 40,
-                  width: 40,
+                  height: 45,
+                  width: 45,
                   decoration: BoxDecoration(
                     color: primaryColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(25),
                   ),
                   child: const Icon(
                     Icons.arrow_back_ios_rounded,
@@ -51,16 +51,17 @@ class SignupScreen extends StatelessWidget {
                   const SizedBox(height: 100),
                   customText(
                     text: "Register",
-                    fontSize: 35,
+                    fontSize: 38,
                     fontWeight: FontWeight.w500,
                     color: primaryColor,
                   ),
                   const SizedBox(height: 5),
                   customText(
-                      text: "Create your new account",
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                      color: blackColor.withOpacity(0.4)),
+                    text: "Create your new account",
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: blackColor.withOpacity(0.5),
+                  ),
                   const SizedBox(height: 30),
                   CustomTextField(
                     hintText: "Full Name",
@@ -112,7 +113,7 @@ class SignupScreen extends StatelessWidget {
                   CustomButton(
                     text: "Signup",
                     fontSize: 17,
-                    height: responsive.setHeight(5),
+                    height: responsive.setHeight(6),
                     width: double.infinity,
                   ),
                   const SizedBox(height: 10),
@@ -123,15 +124,15 @@ class SignupScreen extends StatelessWidget {
                         children: [
                           customText(
                             text: "Remember me",
-                            fontSize: 12,
+                            fontSize: 13,
                             fontWeight: FontWeight.w400,
-                            color: blackColor.withOpacity(0.4),
+                            color: blackColor.withOpacity(0.5),
                           ),
                         ],
                       ),
                       customText(
                         text: "Forget Password ?",
-                        fontSize: 12,
+                        fontSize: 13,
                         color: primaryColor,
                       )
                     ],
@@ -149,7 +150,7 @@ class SignupScreen extends StatelessWidget {
                       ),
                       customText(
                         text: " or with continue with ",
-                        fontSize: 15,
+                        fontSize: 16,
                       ),
                       const Expanded(
                         child: Divider(
@@ -249,16 +250,16 @@ class SignupScreen extends StatelessWidget {
               children: [
                 customText(
                   text: "Already have an account?",
-                  fontSize: 15,
+                  fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  color: blackColor.withOpacity(0.4),
+                  color: blackColor.withOpacity(0.5),
                 ),
                 const SizedBox(width: 5),
                 InkWell(
                   onTap: () => Get.toNamed("loginScreen"),
                   child: customText(
                     text: "Login",
-                    fontSize: 15,
+                    fontSize: 16,
                     color: primaryColor,
                   ),
                 )

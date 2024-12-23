@@ -10,8 +10,8 @@ import '../../utils/responsive.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
-  LoginController controller = Get.put(LoginController());
-  Responsive responsive = Responsive();
+  final LoginController controller = Get.put(LoginController());
+  final Responsive responsive = Responsive();
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +43,11 @@ class LoginScreen extends StatelessWidget {
                       child: InkWell(
                         onTap: () => Get.back(),
                         child: Container(
-                          height: 40,
-                          width: 40,
+                          height: 45,
+                          width: 45,
                           decoration: BoxDecoration(
                             color: whiteColor,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(25),
                           ),
                           child: const Icon(
                             Icons.arrow_back_ios_rounded,
@@ -70,17 +70,18 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 20),
                     customText(
                       text: "Welcome Back",
-                      fontSize: 35,
+                      fontSize: 38,
                       fontWeight: FontWeight.w500,
                       color: primaryColor,
                     ),
                     const SizedBox(height: 5),
                     customText(
                         text: "Login to your account",
-                        fontSize: 15,
+                        fontSize: 16,
                         fontWeight: FontWeight.w400,
-                        color: blackColor.withOpacity(0.4)),
-                    const SizedBox(height: 30),
+                        color: blackColor.withOpacity(0.5),
+                    ),
+                    const SizedBox(height: 28),
                     CustomTextField(
                       hintText: "Full Name",
                       hintTextColor: primaryColor,
@@ -106,11 +107,11 @@ class LoginScreen extends StatelessWidget {
                         onTap: controller.toggleObscureText,
                         suffixIcon: controller.isObscured.value
                             ? const Icon(
-                                Icons.remove_red_eye,
+                                Icons.visibility_off,
                                 color: primaryColor,
                               )
                             : const Icon(
-                                Icons.remove_red_eye_outlined,
+                                Icons.visibility,
                                 color: primaryColor,
                               ),
                         controller: controller.passwordTextController,
@@ -124,7 +125,7 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             customText(
                               text: "Remember me",
-                              fontSize: 12,
+                              fontSize: 13,
                               fontWeight: FontWeight.w400,
                               color: blackColor.withOpacity(0.4),
                             ),
@@ -132,7 +133,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         customText(
                           text: "Forget Password ?",
-                          fontSize: 12,
+                          fontSize: 13,
                           color: primaryColor,
                         )
                       ],
@@ -154,8 +155,8 @@ class LoginScreen extends StatelessWidget {
           children: [
             CustomButton(
               text: "Login",
-              fontSize: 17,
-              height: responsive.setHeight(5),
+              fontSize: 18,
+              height: responsive.setHeight(6),
               width: double.infinity,
               onTap: () => Get.toNamed("/bottomNavBar"),
             ),
@@ -165,16 +166,16 @@ class LoginScreen extends StatelessWidget {
               children: [
                 customText(
                   text: "Don't have account?",
-                  fontSize: 15,
+                  fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  color: blackColor.withOpacity(0.4),
+                  color: blackColor.withOpacity(0.5),
                 ),
                 const SizedBox(width: 5),
                 InkWell(
                   onTap: () => Get.toNamed('/SignUpScreen'),
                   child: customText(
                     text: "Signup",
-                    fontSize: 15,
+                    fontSize: 16,
                     color: primaryColor,
                   ),
                 )

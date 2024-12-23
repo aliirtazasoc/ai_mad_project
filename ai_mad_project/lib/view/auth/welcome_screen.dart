@@ -41,7 +41,7 @@ class WelcomeScreen extends StatelessWidget {
               CustomButton(
                 text: "Sign In",
                 fontSize: 17,
-                height: responsive.setHeight(5),
+                height: responsive.setHeight(6),
                 width: double.infinity,
                 borderRadius: BorderRadius.circular(15),
                 onTap: () => Get.toNamed("loginScreen"),

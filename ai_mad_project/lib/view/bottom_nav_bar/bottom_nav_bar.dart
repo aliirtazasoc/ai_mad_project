@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BottomNavBar extends StatelessWidget {
+  BottomNavBar({super.key});
+
   final BottomNavBarController controller = Get.put(BottomNavBarController());
 
   final List<Widget> pages = [
-    Center(child: Text('Home Page')),
-    Center(child: Text('Projects Page')),
-    Center(child: Text('Add Page')),
-    Center(child: Text('Templates Page')),
-    Center(child: Text('Pro Page')),
+    const Center(child: Text('Home Page')),
+    const Center(child: Text('Projects Page')),
+    const Center(child: Text('Add Page')),
+    const Center(child: Text('Templates Page')),
+    const Center(child: Text('Pro Page')),
   ];
 
   @override
@@ -23,12 +25,14 @@ class BottomNavBar extends StatelessWidget {
         children: [
           Obx(
             () => BottomNavigationBar(
+              // showUnselectedLabels: true,
               backgroundColor: whiteColor,
               currentIndex: controller.selectedIndex.value,
               onTap: controller.changeIndex,
               type: BottomNavigationBarType.fixed,
               selectedItemColor: primaryColor,
               unselectedItemColor: greyColor,
+              elevation: 0,
               items: [
                 BottomNavigationBarItem(
                   icon: Icon(
@@ -44,8 +48,7 @@ class BottomNavBar extends StatelessWidget {
                   ),
                   label: 'Projects',
                 ),
-                // Placeholder for center icon (empty to prevent shifting)
-                BottomNavigationBarItem(
+                const BottomNavigationBarItem(
                   icon: SizedBox.shrink(),
                   label: '',
                 ),
@@ -67,18 +70,18 @@ class BottomNavBar extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 10, // Adjust this value for positioning
+            bottom: 11, // Adjust this value for positioning
             child: GestureDetector(
               onTap: () => controller.changeIndex(2),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: whiteColor, // Background color for the icon
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.add_circle,
                   color: primaryColor,
-                  size: 50, // Larger size for the center icon
+                  size: 51, // Larger size for the center icon
                 ),
               ),
             ),
