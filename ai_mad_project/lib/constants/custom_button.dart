@@ -49,11 +49,13 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery
+        .of(context)
+        .size;
 
     return InkWell(
       onTap: onTap ??
-          () {
+              () {
             if (kDebugMode) {
               print(btnColor);
             }
@@ -72,48 +74,46 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: isLoading == true
               ? const SizedBox(
-                  height: 30,
-                  width: 30,
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
-                  ),
-                )
+            height: 30,
+            width: 30,
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            ),
+          )
               : Padding(
-                  padding: padding ?? EdgeInsets.zero,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      // Display image if provided
-                      if (image != null)
-                        Image.asset(
-                          image!,
-                          height:
-                              iconSize, // Icon size applied to image as well
-                          width: iconSize,
-                          fit: BoxFit.contain,
-                        ),
+            padding: padding ?? EdgeInsets.zero,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
 
-                      // Display icon if provided
-                      if (icon != null)
-                        Icon(
-                          icon,
-                          size: iconSize,
-                          color: btnTextColor ?? Colors.white,
-                        ),
-                      if (icon != null || image != null)
-                        const SizedBox(width: 8),
-                      Center(
-                        child: customText(
-                          text: text,
-                          fontFamily: fontFamily,
-                          color: btnTextColor ?? Colors.white,
-                          fontSize: fontSize ?? 16,
-                          fontWeight: fontWeight ?? FontWeight.w400,
-                        ),
-                      ),
-                    ],
+                if (image != null)
+                  Image.asset(
+                    image!,
+                    height:
+                    iconSize, // Icon size applied to image as well
+                    width: iconSize,
+                    fit: BoxFit.contain,
+                  ),
+                if (icon != null)
+                  Icon(
+                    icon,
+                    size: iconSize,
+                    color: btnTextColor ?? Colors.white,
+                  ),
+                if (icon != null || image != null)
+                  const SizedBox(width: 8),
+                Center(
+                  child: customText(
+                    text: text,
+                    fontFamily: fontFamily,
+                    color: btnTextColor ?? Colors.white,
+                    fontSize: fontSize ?? 16,
+                    fontWeight: fontWeight ?? FontWeight.w400,
                   ),
                 ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -164,7 +164,9 @@ class RowCustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery
+        .of(context)
+        .size;
     return InkWell(
       onTap: onTap ?? () {},
       child: Container(
@@ -173,12 +175,12 @@ class RowCustomButton extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: gradientColors != null
               ? LinearGradient(
-                  colors: gradientColors!,
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                )
+            colors: gradientColors!,
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          )
               : null,
-          color: gradientColors == null ? btnColor ??whiteColor : null,
+          color: gradientColors == null ? btnColor ?? whiteColor : null,
           borderRadius: borderRadius ?? BorderRadius.circular(50),
           border: Border.all(
             color: borderColor ?? Colors.transparent,
@@ -187,20 +189,20 @@ class RowCustomButton extends StatelessWidget {
         ),
         child: isLoading == true
             ? const SizedBox(
-                height: 30,
-                width: 30,
-                child: CircularProgressIndicator(
-                  color: whiteColor,
-                ),
-              )
+          height: 30,
+          width: 30,
+          child: CircularProgressIndicator(
+            color: whiteColor,
+          ),
+        )
             : Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // mainAxisSize: MainAxisSize.min,
-                  children: _buildChildrenBasedOnAlignment(),
-                ),
-              ),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisSize: MainAxisSize.min,
+            children: _buildChildrenBasedOnAlignment(),
+          ),
+        ),
       ),
     );
   }

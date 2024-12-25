@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 
 import 'color_constants.dart';
@@ -17,7 +18,7 @@ class CustomTextField extends StatelessWidget {
     this.minLines,
     this.hintText,
     this.hintTextColor,
-    this.backgroundColor, // New property for background color
+    this.backgroundColor,
     this.keyboaredtype,
     this.prefix,
     this.prefixConstraints,
@@ -52,7 +53,7 @@ class CustomTextField extends StatelessWidget {
   final int? maxLength;
   final String? hintText;
   final Color? hintTextColor;
-  final Color? backgroundColor; // Background color property
+  final Color? backgroundColor;
   final String? labelText;
   final Widget? prefix;
   final BoxConstraints? prefixConstraints;
@@ -83,7 +84,7 @@ class CustomTextField extends StatelessWidget {
           color: blackColor,
           fontWeight: FontWeight.w600,
           fontSize: fontsize ?? 15,
-          fontFamily: "MontserratRegular",
+          fontFamily: GoogleFonts.poppins().fontFamily, // Use Google Font here
         ),
         keyboardType: keyboaredtype ?? TextInputType.emailAddress,
         controller: controller,
@@ -106,7 +107,7 @@ class CustomTextField extends StatelessWidget {
     );
   }
 
-  _buildDecoration() {
+  InputDecoration _buildDecoration() {
     return InputDecoration(
       hintText: hintText ?? "",
       labelText: labelText,
@@ -114,13 +115,13 @@ class CustomTextField extends StatelessWidget {
         color: hintTextColor ?? blackColor.withOpacity(0.4),
         fontWeight: FontWeight.w400,
         fontSize: 15,
-        fontFamily: "MontserratRegular",
+        fontFamily: GoogleFonts.poppins().fontFamily, // Use Google Font for hint
       ),
-      labelStyle: const TextStyle(
+      labelStyle: TextStyle(
         color: blackColor,
         fontWeight: FontWeight.w400,
         fontSize: 15,
-        fontFamily: "MontserratRegular",
+        fontFamily: GoogleFonts.poppins().fontFamily, // Use Google Font for label
       ),
       contentPadding: EdgeInsets.symmetric(
         vertical: (height ?? 55) / 4,
@@ -146,8 +147,8 @@ class CustomTextField extends StatelessWidget {
       prefixIconConstraints: prefixConstraints,
       suffixIcon: suffixIcon,
       suffixIconConstraints: suffixConstraints,
-      fillColor: backgroundColor ?? Colors.white, // Use backgroundColor property
-      filled: true, // Enable the background color
+      fillColor: backgroundColor ?? Colors.white,
+      filled: true,
       isDense: true,
     );
   }

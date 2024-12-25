@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Widget customText({
   String? text,
@@ -25,10 +25,10 @@ Widget customText({
     overflow: overFlow,
     softWrap: true,
     style: TextStyle(
-      fontFamily: fontFamily, // Ensure it is applied here
+      fontFamily: GoogleFonts.poppins().fontFamily,
       color: color,
       fontSize: fontSize,
-      fontWeight: fontWeight, // Ensure the weight is respected
+      fontWeight: fontWeight,
       fontStyle: fontStyle,
       decoration: txtDecoration,
       decorationColor: decorationColor,
