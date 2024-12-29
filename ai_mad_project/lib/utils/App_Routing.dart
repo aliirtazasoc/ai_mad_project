@@ -10,12 +10,14 @@ import '../view/home_screen/home_screen.dart';
 
 class AppRoutes {
   static List<GetPage<dynamic>> routes = [
-    GetPage(name: '/', page: () =>     SplashScreen()),
-    GetPage(name: '/loginScreen', page: ()=>  LoginScreen()),
-    GetPage(name: '/SignUpScreen', page: () =>  SignupScreen()),
-    GetPage(name: '/welcomeScreen', page: () =>  WelcomeScreen()),
-    GetPage(name: '/bottomNavBar', page: () =>  BottomNavBar()),
-    GetPage(name: '/addPlanScreen', page: () =>  AddPlanScreen()),
-    GetPage(name: '/homeScreen', page: () =>  HomeScreen()),
+    GetPage(name: '/', page: () => SplashScreen()),
+    GetPage(name: '/loginScreen', page: () => LoginScreen()),
+    GetPage(name: '/SignUpScreen', page: () => SignupScreen()),
+    GetPage(name: '/welcomeScreen', page: () => WelcomeScreen()),
+    GetPage(name: '/bottomNavBar', page: () => BottomNavBar()),
+    GetPage(name: '/addPlanScreen', page: () => AddPlanScreen()),
+    GetPage(name: '/homeScreen', page: () => HomeScreen()),
   ];
 }
+
+class SignupLoginScreenScreen {}

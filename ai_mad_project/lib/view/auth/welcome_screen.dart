@@ -34,10 +34,10 @@ class WelcomeScreen extends StatelessWidget {
             children: [
               customText(
                 text: "The best app for your health",
-                fontSize: 70,
+                fontSize: responsive.setTextScale(60),
                 fontWeight: FontWeight.w500,
               ),
-              const SizedBox(height: 250),
+               SizedBox(height: responsive.setHeight(50)),
               CustomButton(
                 text: "Sign In",
                 fontSize: 17,

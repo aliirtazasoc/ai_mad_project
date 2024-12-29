@@ -1,11 +1,8 @@
 import 'package:ai_mad_project/utils/responsive.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../constants/color_constants.dart';
 import '../../constants/customText.dart';
-import '../bottom_nav_bar/bottom_nav_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -14,6 +11,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     responsive.setContext(context);
     return Scaffold(
+      backgroundColor: whiteColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -37,16 +35,12 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               Positioned(
-                bottom: -35,
+                bottom: -55,
                 right: 20,
                 left: 20,
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    "assets/png/profile_image.png",
-                  ),
-
-                  radius: 60,
-                  // Use NetworkImage or AssetImage for the profile picture.
+                child: Image.asset(
+                  "assets/png/profile_image.png",
+                  height: 120,
                 ),
               )
             ],
@@ -54,35 +48,114 @@ class ProfileScreen extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.only(
+                  left: responsive.setWidth(4.5),
+                  right: responsive.setWidth(4.5),
+                  top: responsive.setHeight(5),
+                ),
                 child: Column(
                   children: [
-              
                     SizedBox(height: 10),
-                    Text('Puerto Rico',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 5),
-                    Text('youremail@domain.com | +01 234 567 89',
-                        style: TextStyle(color: Colors.grey)),
-                    SizedBox(height: 20),
-                    _buildOptionTile('Edit profile information', Icons.edit, () {}),
-                    _buildOptionTile('Notifications', Icons.notifications, () {},
-                        isActive: true),
-                    _buildOptionTile('Language', Icons.language, () {},
-                        subTitle: 'English'),
-                    SizedBox(height: 20),
-                    Text('Preferences',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10),
-                    _buildOptionTile('Security', Icons.lock, () {}),
-                    _buildOptionTile('Theme', Icons.wb_sunny, () {},
-                        subTitle: 'Light mode'),
-                    SizedBox(height: 20),
-                    Text('Help & Support',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10),
-                    _buildOptionTile('Contact us', Icons.contact_mail, () {}),
-                    _buildOptionTile('Privacy policy', Icons.privacy_tip, () {}),
+                    customText(
+                      text: 'Ali Irtaza',
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    customText(
+                      text: 'youremail@domain.com | +01 234 567 89',
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: whiteColor,
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.4),
+                            spreadRadius: 2,
+                            blurRadius: 3,
+                            offset: const Offset(0, 1),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: responsive.setWidth(4),
+                          vertical: responsive.setHeight(0.1),
+                        ),
+                        child: Column(
+                          children: [
+                            _buildOptionTile(
+                                'Edit profile information', Icons.edit, () {}),
+                            _buildOptionTile(
+                                'Notifications', Icons.notifications, () {},
+                                isActive: false),
+                            _buildOptionTile('Language', Icons.language, () {},
+                                subTitle: 'English'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: whiteColor,
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.4),
+                            spreadRadius: 2,
+                            blurRadius: 3,
+                            offset: const Offset(0, 1),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: responsive.setWidth(4),
+                          vertical: responsive.setHeight(0.1),
+                        ),
+                        child: Column(
+                          children: [
+                            _buildOptionTile('Security', Icons.lock, () {}),
+                            _buildOptionTile('Theme', Icons.wb_sunny, () {},
+                                subTitle: 'Light mode'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: whiteColor,
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.4),
+                            spreadRadius: 2,
+                            blurRadius: 3,
+                            offset: const Offset(0, 1),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: responsive.setWidth(4),
+                          vertical: responsive.setHeight(0.1),
+                        ),
+                        child: Column(
+                          children: [
+                            _buildOptionTile(
+                                'Help & support', Icons.contact_mail, () {}),
+                            _buildOptionTile(
+                                'Contact us', Icons.contact_mail, () {}),
+                            _buildOptionTile(
+                                'Privacy policy', Icons.privacy_tip, () {}),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
                   ],
                 ),
               ),
@@ -98,10 +171,13 @@ class ProfileScreen extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       onTap: () => onTap(),
-      leading: Icon(icon, color: isActive ? Colors.blue : Colors.grey),
-      title: Text(title),
+      leading: Icon(icon, color: isActive ? Colors.blue : Colors.black),
+      title: customText(text: title),
       subtitle: subTitle.isNotEmpty
-          ? Text(subTitle, style: TextStyle(color: Colors.grey))
+          ? customText(
+              text: subTitle,
+              color: Colors.black54,
+            )
           : null,
       trailing:
           isActive ? Text('ON', style: TextStyle(color: Colors.green)) : null,

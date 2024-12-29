@@ -338,12 +338,14 @@ class AddPlanScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 10),
-                            customText(
-                              text:
-                                  'Selected Time: ${controller.selectedTime.value.format(context)}',
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: primaryColor,
+                            Obx(
+                            ()=> customText(
+                                text:
+                                    'Selected Time: ${controller.selectedTime.value.format(context)}',
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: primaryColor,
+                              ),
                             ),
                             const Spacer(),
                             Container(
@@ -391,7 +393,7 @@ class AddPlanScreen extends StatelessWidget {
     showCupertinoModalPopup(
       context: context,
       builder: (_) => Container(
-        height: 250,
+        height: 252,
         color: Colors.white,
         child: Column(
           children: [
